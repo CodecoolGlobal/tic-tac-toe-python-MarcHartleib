@@ -1,4 +1,12 @@
+def slice_per(source, step):
+    return [source[i::step]for i in range(step)]
+
 def get_empty_board():
+    board = [".", ".", ".",
+            ".", ".", ".",
+            ".", ".", "."]
+    
+    return(slice_per(board, 3))
     '''
     Should return a list with 3 sublists.
     Each sublist should contain 3 time the "." character
