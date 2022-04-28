@@ -1,3 +1,4 @@
+import time
 def display_board(board):
 #   """
 #   Should print the tic tac toe board in a format similar to
@@ -20,7 +21,8 @@ def display_board(board):
   print(f"B {row2}")
   print( "  --+---+--")
   print(f"C {row3}")
-  print(board)
+  print("\n")
+ # print(board)
   pass
 
 
@@ -28,9 +30,9 @@ def display_board(board):
 if __name__ == "__main__":
     # run this file to test you have implemented correctly the function
     board = [
-      ["x", ".", "."],
-      ["x", ".", "."],
-      [".", ".", "."]
+      ["X", "O", "."],
+      ["X", "O", "."],
+      ["O", "X", "."]
     ]
     display_board(board)
     # should print 

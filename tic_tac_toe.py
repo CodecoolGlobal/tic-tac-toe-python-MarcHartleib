@@ -6,38 +6,104 @@ from function4 import get_random_ai_coordinates
 from function5 import get_umbeatable_ai_coordinates
 from function6 import get_winning_player
 from function7 import is_board_full
-
+from time import sleep
 
 HUMAN_VS_HUMAN = 1
 RANDOM_AI_VS_RANDOM_AI = 2
 HUMAN_VS_RANDOM_AI = 3
 HUMAN_VS_UNBEATABLE_AI = 4
 
+
+
 def main():
     game_mode = get_menu_option()
     board = get_empty_board()
     is_game_running = True
+    round = 0
+    winning_player = get_winning_player(board)
+   
     while is_game_running:
-        display_board(board)
+        #display_board(board)
         
         ### TO DO ###
         # in each new iteration of the while loop the program should 
         # alternate the value of `current_player` from `X` to `O`
         current_player = 'X'
         
+        if round % 2 == 0:
+            current_player = "X"
+        else:
+            current_player = "O"
+        round +=1
+
+        
+
         ### TO DO ###
         # based on the value of the variables `game_mode` and `current_player` 
         # the programm should should choose betwen the functions
         # get_random_ai_coordinates or get_umbeatable_ai_coordinates or get_human_coordinates
-        x, y = get_human_coordinates(board, current_player)
+        if game_mode == 1:
+            display_board(board)
+            x, y = get_human_coordinates(board, current_player)
+            print("\n")
+            board[x][y] = current_player
+            
+
+        if game_mode == 2:
+            display_board(board)
+            x, y = get_random_ai_coordinates(board, current_player)
+            board[x][y] = current_player
+            sleep(0.5)
         
-        board[x][y] = current_player
+        if game_mode == 3:
+            display_board(board)
+            if round % 2 != 0:
+                x, y = get_human_coordinates(board, current_player)
+                print("\n")
+            else:
+                x, y = get_random_ai_coordinates(board, current_player)
+            board[x][y] = current_player
+            sleep(0.5)
+
+        if is_board_full(board) == True and get_winning_player(board) == None:
+            board[x][y] = current_player
+            display_board(board)
+            print("Draw!")
+            break
+            
+            
+
+
+
+        
         
         ### TO DO ###
         # based on the values of `winning_player` and `its_a_tie` the program
         # should either stop displaying a winning/tie message 
         # OR continue the while loop
+        
+        if get_winning_player(board) == None:
+            continue
+        elif get_winning_player(board) == "X":
+            board[x][y] = current_player
+            display_board(board)
+            print("Player 'X' won!")
+            break
+        elif get_winning_player(board) == "O":
+            board[x][y] = current_player
+            display_board(board)
+            print("Player 'O' won!")
+            break
+
+        
+
+
+
+
+    
+
         winning_player = get_winning_player(board)
+        
         its_a_tie = is_board_full(board)
 
 

@@ -10,6 +10,29 @@ def get_menu_option():
   If the user will enter invalid data (for example 5), than a message will appear
   asking to input a new value.
   '''
+  print("Welcome to Tic Tac Toe\n")
+  print("Please chose your game mode:")
+  print("1. Human vs Human")
+  print("2. Random AI vs Random AI")
+  print("3. Human vs Random AI")
+  print("4. Human vs Unbeatable AI\n")
+  
+  while True:
+      gamemode = input("")
+      if gamemode.isdigit():
+        gamemode = int(gamemode)
+        if gamemode > 4 or gamemode < 1:
+          print("Invalid input, try again")
+        else:
+          for difficulty in range(1,5):
+            if difficulty == gamemode:
+              return difficulty
+            else:
+              difficulty += 1
+      else:
+        print("Invalid input, try again")
+
+
   pass
 
 
