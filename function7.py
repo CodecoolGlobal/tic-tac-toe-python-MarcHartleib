@@ -15,18 +15,18 @@ if __name__ == "__main__":
       ["X", "O", "."],
       ["X", "X", "O"],
     ]
-    print(is_board_full(board_1)) # should return False
+    print(is_board_full(board_1))  # should return False
 
     board_2 = [
       [".", "O", "O"],
       [".", "O", "X"],
       [".", "X", "X"],
     ]
-    print(is_board_full(board_2)) # should return False
+    print(is_board_full(board_2))  # should return False
 
     board_3 = [
       ["O", "O", "X"],
       ["O", "X", "O"],
       ["O", "X", "X"],
     ]
-    print(is_board_full(board_3)) # should return True
+    print(is_board_full(board_3))  # should return True

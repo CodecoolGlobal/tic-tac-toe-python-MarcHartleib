@@ -22,11 +22,11 @@ if __name__ == "__main__":
       ["O", "X", "."]
     ]
     display_board(board)
-    # should print 
+    # should print
     #     1   2   3
-    # A   X | O | . 
+    # A   X | O | .
     #    ---+---+---
     # B   X | O | .
     #    --+---+---
-    # C   0 | X | . 
+    # C   0 | X | .
     #    --+---+---
